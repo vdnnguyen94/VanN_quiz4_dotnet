@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+    <h1>Hello, @ViewBag.Name</h1>
+    <p>ASP.NET APPLICATION </p>
+    <div class="mt-4">
+        <h3>Enter a string:</h3>
+        <input type="text" id="userInput" class="form-control w-50 mx-auto" placeholder="Type something..." />
+        <button class="btn btn-primary mt-2" onclick="validateInput()">Check</button>
+        <p id="result" class="mt-2 font-weight-bold"></p>
+    </div>
+
+</div>
+<script>
+    function validateInput() {
+        const str = document.getElementById('userInput').value.trim();
+        const isUpper = /^[A-Z]/.test(str);
+        const result = isUpper
+            ? "✅ Starts with an uppercase letter!"
+            : "❌ Does not start with an uppercase letter.";
+
+        document.getElementById('result').textContent = result;
+    }
+</script>
